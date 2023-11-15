@@ -23,6 +23,11 @@ And then start the server (default: http://localhost:8000)
 Now you can browse the [API](http://localhost:8000/api/)
 or start on the [landing page](http://localhost:8000/)
 
+## Test
+Run the tests with
+
+    python manage.py test
+
 ## Task 
 Create a Dockerfile for the TODO app:
 - TODO App should start inside a container without an error
