@@ -25,6 +25,7 @@ or start on the [landing page](http://localhost:8000/)
 
 ## Task 
 Create a Dockerfile for the TODO app:
+- Fork this repository
 - TODO App should start inside a container without an error
 - Dockerfile should contain the build stage and run stage
 - Add ARG to be used as python base image version in dockerfile
