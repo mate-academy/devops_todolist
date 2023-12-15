@@ -29,9 +29,9 @@ Create a Dockerfile for the TODO app:
 - Dockerfile should contain the build stage and run stage
 - Add ARG to be used as python base image version in dockerfile
 - Execute db migration as RUN instruction
-- Add ENV variable `ENV PYTHONUNBUFFERED=1`. Update README with infomation on why we need this variable
-- Build an image and name it todoapp
+- Add ENV variable `ENV PYTHONUNBUFFERED=1`. This is needed for optimisation of python app for docker (writing logs directly to stdout and stderr without buffering in the app process memory
 - `runserver` should be followed by `0.0.0.0:8080` parameter to properly start Django server
+- Build an image and name it todoapp
 - An image should be pushed to your personal docker hub account into a repository named “todoapp”, with a tag 1.0.0 (todoapp:1.0.0)
 - README.md should contain all the instructions on how to build and run the container.
 - README.md should contain instructions on how to access the application via a browser.
