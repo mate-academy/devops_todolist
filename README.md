@@ -34,6 +34,7 @@ Create a Dockerfile for the TODO app:
 - `runserver` should be followed by `0.0.0.0:8080` parameter to properly start Django server
 - Build an image and name it todoapp
 - An image should be pushed to your personal docker hub account into a repository named “todoapp”, with a tag 1.0.0 (todoapp:1.0.0)
+- README.md should contain a link to your personal docker hub repository win an app image
 - README.md should contain all the instructions on how to build and run the container.
 - README.md should contain instructions on how to access the application via a browser.
 - Create PR with your changes and attach it for validation on a platform
