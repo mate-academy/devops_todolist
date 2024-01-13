@@ -1,8 +1,16 @@
-Build the Docker image
+# ToDo App
+
+This is a Django ToDo app.
+
+## Docker Image
+
+The Docker image for this app is available on Docker Hub:
+https://hub.docker.com/r/alexhf92/todoapp
+## Build and Run Instructions
+
+To build the Docker image:
+
+```bash
 docker build -t todoapp:1.0.0 .
 
-Run the Docker container using the following command:
-docker run -p 8080:8080 --name todoapp todoapp:1.0.0
-
-Open web browser on your machine
-http://localhost:8080
+docker run -p 8000:8000 todoapp:1.0.0
