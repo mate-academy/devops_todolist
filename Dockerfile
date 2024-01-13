@@ -4,7 +4,7 @@ FROM python:${PYTHON_VERSION}-slim AS builder
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install django
