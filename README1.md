@@ -10,7 +10,9 @@ https://hub.docker.com/r/alexhf92/todoapp
 
 To build the Docker image:
 
-```bash
 docker build -t todoapp:1.0.0 .
 
 docker run -p 8000:8000 todoapp:1.0.0
+
+##  Accessing the Application
+Visit http://localhost:8000 in your browser to access the Django ToDo app.
