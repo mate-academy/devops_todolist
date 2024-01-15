@@ -10,11 +10,11 @@ RUN pip3 install django
 
 COPY . .
 
-FROM python:${PYTHON_VERSION}-slim
-
-ENV PYTHONUNBUFFERED=1
+FROM python:${PYTHON_VERSION}-slim as run
 
 WORKDIR /app
+
+ENV PYTHONUNBUFFERED=1
 
 COPY --from=base /app .
 
