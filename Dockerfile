@@ -4,10 +4,6 @@ FROM python:${PYTHON_VERSION} AS base
 
 WORKDIR /app
 
-RUN pip3 install django
-
-#RUN python manage.py migrate
-
 COPY . .
 
 FROM python:${PYTHON_VERSION}-slim as run
@@ -18,7 +14,8 @@ ENV PYTHONUNBUFFERED=1
 
 COPY --from=base /app .
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip &&\
+    pip install -r requirements.txt
 
 RUN python manage.py migrate
 
