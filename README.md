@@ -17,3 +17,11 @@ EXPOSE 8080
 ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:8080"]
 
 http://localhost:8080/
+
+
+Instructions:
+
+docker build -t todoapp:1.0.0 .
+docker tag todoapp:1.0.0 ladmael/todoapp:1.0.0
+docker create -p 8080:8080 --name todoapp ladmael/todoapp:1.0.0
+docker start todoapp
