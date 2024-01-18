@@ -57,14 +57,14 @@ Instructions to pull and run the `todoapp` Docker image from Docker Hub.
 To download the `todoapp` image from Docker Hub, run:
 
 ```bash
-docker pull volry/todoapp:1.0.0
+docker pull volry/todoapp:1.0.1
 ```
 
 ### Run container
 To start the container with the downloaded image:
 
 ```bash
-docker run -p 8000:8000 volry/todoapp:1.0.0
+docker run -p 8000:8000 volry/todoapp:1.0.1
 ```
 This will map the container's port 8000 to port 8000 on your host
 
