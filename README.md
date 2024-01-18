@@ -44,3 +44,28 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+## Running the ToDo App Docker Image
+
+Instructions to pull and run the `todoapp` Docker image from Docker Hub.
+
+### Prerequisites
+- Docker must be installed on your machine.
+- You should have a Docker Hub account for private images.
+
+### Pull the Image
+To download the `todoapp` image from Docker Hub, run:
+
+```bash
+docker pull volry/todoapp:1.0.0
+
+### Run container
+To start the container with the downloaded image:
+
+```bash
+docker run -p 8000:8000 volry/todoapp:1.0.0
+
+This will map the container's port 8000 to port 8000 on your host
+
+### Access the Application
+Open a web browser and go to http://localhost:8000 to see the ToDo application.
