@@ -6,12 +6,14 @@ FROM python:${PYTHON_VERSION} AS builder
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY . .
 
+# install requirements
 RUN pip install --no-cache-dir -r requirements.txt
 
+# run  Django migrations
 RUN python manage.py migrate
 
 EXPOSE 8000
