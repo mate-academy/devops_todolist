@@ -1,5 +1,5 @@
 # Define the Python version to use for both build and run stages
-ARG PYTHON_VERSION=3.8
+ARG PYTHON_VERSION=3.8-slim
 
 # Build stage
 FROM python:${PYTHON_VERSION} AS build-stage
