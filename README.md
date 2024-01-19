@@ -27,6 +27,40 @@ python manage.py runserver
 
 Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
 
+
+## Using Docker
+A Docker file is already included in the repository, but you can also download a ready image from [Docker Hub](https://hub.docker.com/r/oksanamiazina/todoapp):
+
+```
+docker pull oksanamiazina/todoapp
+```
+
+Or you can just build a container from the provided one:
+```
+docker build -t <name_of_your_container> .
+```
+
+### Running a container
+
+```
+docker run -p 8080:8080 <name_of_your_container>
+```
+After a moment, the web front-end will appear at http://localhost:8080.
+
+To change port for local development:
+```
+docker run -p 3000:8080 <name_of_your_container>
+```
+
+### Docker Environment Variables
+
+- **PYTHON_VERSION** - Python base image version (default is set to **3.8**)
+
+```
+docker run -e PYTHON_VERSION=<version_of_python> -p 8080:8080 <name_of_your_container>
+```
+
+
 ## Task
 
 Create a `Dockerfile` for the ToDo app:
