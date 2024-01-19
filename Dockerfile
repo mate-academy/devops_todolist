@@ -8,7 +8,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run stage
-FROM python:${PYTHON_VERSION}-slim AS run-stage
+FROM python:${PYTHON_VERSION} AS run-stage
 COPY --from=build-stage /app /app
 COPY --from=build-stage /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
 WORKDIR /app
