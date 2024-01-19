@@ -1,20 +1,23 @@
 # use pyton 3.8 as base image
 ARG PYTHON_VERSION=3.8
 
-FROM python:${PYTHON_VERSION} AS builder
-
-# Set environment variables
-ENV PYTHONUNBUFFERED=1
+# build stage
+FROM python:${PYTHON_VERSION} AS build-stage
 
 WORKDIR /app
 
 COPY . .
 
-# install requirements
 RUN pip install --no-cache-dir -r requirements.txt
-
-# run  Django migrations
 RUN python manage.py migrate
+
+
+# run stage
+FROM python:${PYTHON_VERSION}-slim AS run-stage
+WORKDIR /app
+COPY --from=build-stage /app .
+ENV PYTHONUNBUFFERED=1
+
 
 EXPOSE 8000
 
