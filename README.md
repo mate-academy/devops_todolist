@@ -44,3 +44,34 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+## Instructions to download and run image
+
+Download image from DockerHub:
+
+https://hub.docker.com/r/vladyslavzinevych/todoapp
+
+Use command to pull image:
+
+```
+docker pull vladyslavzinevych/todoapp
+```
+
+or you can build image from Dockerfile using
+`docker build -t <image_name:image_tag> .`
+
+Finally, run docker container:
+
+```
+docker run -p 8000:8000 <image_name:image_tag>
+```
+
+Content will appear at http://localhost:8000
+
+## Notes
+As a default python version is set to "3.10". 
+If you need another python version - use this command:
+
+```
+docker run -e PYTHON_VERSION=<python_version> -p 8000:8000 <image_name:image_tag>
+```
