@@ -44,3 +44,16 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+# How to run
+Link to Docker Hub repo https://hub.docker.com/repository/docker/dsvyrydoff/todoapp/general
+
+For building execute 
+
+"docker build -f Dockerfile . -t todoapp:1.0.0"
+
+For running execute 
+
+"docker run -e PYTHONUNBUFFERED=1 -p 8080:8080 todoapp:1.0.0"
+
+Starting development server at http://0.0.0.0:8080/
