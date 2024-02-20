@@ -1,11 +1,19 @@
 For using amazing todo application please follow instruction below
 
-1. Download docker image from [repository](https://hub.docker.com/repository/docker/rozdorozhnii/todoapp/) using current command
+To download docker image from [repository](https://hub.docker.com/repository/docker/rozdorozhnii/todoapp/) and run it on you local machine use current command
 ```
-docker pull rozdorozhnii/todoapp:1.0.0
+docker run -d -p 8080:8080 rozdorozhnii/todoapp:1.0.0
 ```
-1. Run container in your local machine
+Now you can enjoy fantastic todo application on http://0.0.0.0:8080/
+
+Or
+
+1. Build new image by executing
+```
+docker build -t todoapp:1.0.0 .
+```
+2. Run container in your local machine
 ```
 docker run -d -p 8080:8080 todoapp:1.0.0
 ```
-1. You can enjoy fantastic todo application on http://0.0.0.0:8080/
+3. You can enjoy fantastic todo application on http://0.0.0.0:8080/
