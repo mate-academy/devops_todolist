@@ -11,7 +11,8 @@ ENV PYTHONUNBUFFERED=1
 
 COPY --from=base /app .
 
-RUN pip install -r requirements.txt && \
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt && \
     python manage.py migrate
 
 EXPOSE 8080
