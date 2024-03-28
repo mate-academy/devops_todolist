@@ -44,3 +44,22 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+So, Hi everyone
+In order to start 'todo' application need to do next steps:
+1. You need to have Docker desktop application
+2. Start your Docker desktop application to start Docker engine
+3. Open CLI, for example, cmd or bash
+4. Execute the next command:
+
+docker pull yaaszp/todoapp:1.0.0
+
+5. Execute the next command
+
+docker run --name <name container> -p 8080:8080 yaaszp/todoapp:1.0.0
+
+6. Open your browser and enter the next URL
+
+localhost:8080
+
+7. You will see the start page of application
