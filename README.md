@@ -32,7 +32,7 @@ Now you can browse the [API](http://localhost:8000/api/) or start on the [landin
 
 Download image from Docker Hub:
 
-[Docker Hub Repository](https://hub.docker.com/repository/docker/mkostiuk98/todoapp)
+[Docker Hub Repository](https://hub.docker.com/repository/docker/mkostiuk98/todoapp/general)
 
 To pull an image:
 ```
