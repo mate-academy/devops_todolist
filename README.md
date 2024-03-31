@@ -27,6 +27,35 @@ python manage.py runserver
 
 Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
 
+
+# Instructions
+
+Download image from Docker Hub:
+
+[Docker Hub Repository](https://hub.docker.com/repository/docker/mkostiuk98/todoapp)
+
+To pull an image:
+```
+docker pull mkostiuk98/todoapp
+```
+
+OR
+
+Build image from Dockerfile:
+
+To build an image:
+```
+docker build -t todoapp:1.0.0 .
+```
+
+To run a container:
+```
+docker run -p 8080:8080 todoapp:1.0.0
+```
+
+Now you can browse the [landing page](http://localhost:8080/).
+
+
 ## Task
 
 Create a `Dockerfile` for the ToDo app:
