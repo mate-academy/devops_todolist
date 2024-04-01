@@ -15,9 +15,9 @@ COPY --from=base /app .
 RUN pip install --upgrade pip && \
     pip3 install -r requirements.txt
 
-RUN python manage.py migrate
-
 ENV PYTHONUNBUFFERED=1
+
+RUN python manage.py migrate
 
 EXPOSE 8080
 
