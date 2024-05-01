@@ -3,6 +3,11 @@
 ```bash
 docker run -p 8080:8080 dkrusr2001/todoapp:1.0.0
 ```
+**OR**
+```bash
+docker build -t todoapp:1.0.0 . && docker run -p 8080:8080 todoapp:1.0.0
+```
+
 Visit http://localhost:8080
 
 ---
