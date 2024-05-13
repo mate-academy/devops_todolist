@@ -16,12 +16,12 @@
         COPY .   ./
         # copying everything from the context directory to created /app 
 
+        RUN pip install --no-cache-dir -r requirements.txt && \
+            python manage.py migrate
+        # running install of dependancies and migration as one command
+
         FROM python:${PYTHON_VERSION}-slim as run
         # using slim version of python in order to lower the image size
-        # creating new stage - I did not get the reason why - but the task acomplished:
-        # if we were using slim python version from the beginning 
-        # and not using multistaging the image size would be exactly same 174MB
-
 
         WORKDIR /app
         # creating and chenging directory to new working /app dir
@@ -29,9 +29,8 @@
         COPY --from=base /app .
         # copying everything from the base stage to created /app 
 
-        RUN pip install --no-cache-dir -r requirements.txt && \
-            python manage.py migrate
-        # running install of dependancies and migration as one command to reduce layers quantity
+        RUN pip install --no-cache-dir -r requirements.txt
+        # running install of dependancies only because we already have migration in the base stage
 
         ENV PYTHONUNBUFFERED=1
         # Add the ENV PYTHONUNBUFFERED=1 variable to optimize the Python app for Docker (writing logs directly to stdout and stderr without buffering in the app process memory.
