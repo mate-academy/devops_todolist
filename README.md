@@ -44,3 +44,12 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+## Docker Hub Repository
+The Docker image is available at: [Docker Hub Repository](https://hub.docker.com/r/okochubei/todoapp)
+
+## Building the Docker Image
+To build the Docker image, run: docker build -t okochubei/todoapp:1.0.0 .
+
+## Running the Docker Container
+To run the Docker container, use: docker run -p 8080:8080 okochubei/todoapp:1.0.0
