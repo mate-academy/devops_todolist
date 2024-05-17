@@ -1,46 +1,52 @@
-# Django ToDo list
+1. https://hub.docker.com/repository/docker/yegorv/todoapp/tags
+2. instructions
 
-This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
+    1. I have created the dockerfile named "todo-list-dockerfile" subfolder of the project root
+    2. dockerfile code is:
 
-- CSS | [Skeleton](http://getskeleton.com/)
-- JS  | [jQuery](https://jquery.com/)
+        ```python
+        ARG PYTHON_VERSION=3.12
+        FROM python:${PYTHON_VERSION} as base
+        # use full python version as base layer, hovewer slim versiion on this stage works identically
+        # later on we can adjust the version if necessary thanks to ARG instruction
 
-## Explore
+        WORKDIR /app
+        # creating and chenging directory to new working /app dir
 
-Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
+        COPY .   ./
+        # copying everything from the context directory to created /app 
 
-```
-pip install -r requirements.txt
-```
+        RUN pip install --no-cache-dir -r requirements.txt && \
+            python manage.py migrate
+        # running install of dependancies and migration as one command
 
-Create a database schema:
+        FROM python:${PYTHON_VERSION}-slim as run
+        # using slim version of python in order to lower the image size
 
-```
-python manage.py migrate
-```
+        WORKDIR /app
+        # creating and chenging directory to new working /app dir
 
-And then start the server (default is http://localhost:8000):
+        COPY --from=base /app .
+        # copying everything from the base stage to created /app 
 
-```
-python manage.py runserver
-```
+        RUN pip install --no-cache-dir -r requirements.txt
+        # running install of dependancies only because we already have migration in the base stage
 
-Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
+        ENV PYTHONUNBUFFERED=1
+        # Add the ENV PYTHONUNBUFFERED=1 variable to optimize the Python app for Docker (writing logs directly to stdout and stderr without buffering in the app process memory.
 
-## Task
+        EXPOSE 8080
+        # make the required port visible from outside of container
 
-Create a `Dockerfile` for the ToDo app:
+        ENTRYPOINT python manage.py runserver 0.0.0.0:8080
+        # starting server
+        ```
+    3. built the image
 
-1. Fork this repository.
-1. ToDo app should start inside a container without an error.
-1. `Dockerfile` should contain the build stage and run stage.
-1. Add `ARG` as Python base image version in `Dockerfile`.
-1. Execute database migration as `RUN` instruction.
-1. Add the `ENV PYTHONUNBUFFERED=1` variable to optimize the Python app for Docker (writing logs directly to `stdout` and `stderr` without buffering in the app process memory.
-1. `runserver` should be followed by the `0.0.0.0:8080` parameter to start the Django server properly.
-1. Build an image and name it `todoapp`.
-1. The image should be pushed to your personal Docker Hub account into the `todoapp` repository with the `1.0.0` tag (`todoapp:1.0.0`).
-1. `README.md` should contain a link to your personal Docker Hub repository win an app image.
-1. `README.md` should contain all the instructions for building and running the container.
-1. `README.md` should contain instructions on accessing the application via a browser.
-1. Create PR with your changes and attach it for validation on a platform.
+        built with command, while treminal directory set to project root in order to copy context files properly
+
+        `docker build . -f dir_for_dockerfile\todo-list-dockerfile -t todoapp:1.0.0`
+    4. created docker account
+    5. logged in with pycharm
+    6. pushed to repository
+3. application accessed via [127.0.0.1:80](http://127.0.0.1:8000/)80
