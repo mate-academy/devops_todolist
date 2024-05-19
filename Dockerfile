@@ -1,8 +1,6 @@
 ARG PYTHON_VERSION=3.8
 
-FROM python:${PYTHON_VERSION}
-
-ENV PYTHONUNBUFFERED=1
+FROM python:${PYTHON_VERSION}-slim as builder
 
 WORKDIR /app
 
@@ -10,6 +8,14 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+FROM python:${PYTHON_VERSION}-slim
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+COPY --from=builder /app /app
 
 RUN python manage.py migrate
 
