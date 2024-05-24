@@ -1,3 +1,28 @@
+# Instructions
+
+
+Download image from [repository](https://hub.docker.com/r/horizon337/todoapp)
+
+Pull image:
+
+```
+docker pull horizon337/todoapp
+```
+
+OR
+
+Build image from Dockerfile:
+```
+docker build -t todoapp:1.0.0
+```
+
+Run container via this command
+```
+docker run -p 8080:8080 todoapp:1.0.0
+```
+
+Access application via browser by [link](http://localhost:8080)
+
 # Django ToDo list
 
 This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
@@ -19,11 +44,12 @@ Create a database schema:
 python manage.py migrate
 ```
 
-And then start the server (default is http://localhost:8000):
+And then start the server (default is http://localhost:8000)
 
 ```
 python manage.py runserver
 ```
+
 
 Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
 
