@@ -23,10 +23,16 @@ docker run -p 8080:8080 todoapp:1.0.0
 
 Access application via browser by [link](localhost:8080)
 
+# Django ToDo list
 
-```
-docker pull horizon337/todoapp
-```
+This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
+
+- CSS | [Skeleton](http://getskeleton.com/)
+- JS  | [jQuery](https://jquery.com/)
+
+## Explore
+
+Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
 
 ```
 pip install -r requirements.txt
@@ -40,21 +46,10 @@ python manage.py migrate
 
 And then start the server (default is http://localhost:8000)
 
-# Django ToDo list
-
-This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
-
-- CSS | [Skeleton](http://getskeleton.com/)
-- JS  | [jQuery](https://jquery.com/)
-
-## Explore
-
-Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
-
-
 ```
 python manage.py runserver
 ```
+
 
 Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
 
