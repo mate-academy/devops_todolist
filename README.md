@@ -21,7 +21,7 @@ Run container via this command
 docker run -p 8080:8080 todoapp:1.0.0
 ```
 
-Access application via browser by [link](localhost:8080)
+Access application via browser by [link](http://localhost:8080)
 
 # Django ToDo list
 
