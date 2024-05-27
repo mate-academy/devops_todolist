@@ -1,0 +1,33 @@
+# Define internal python version variable
+ARG PYTHON_VERSION=3.12
+
+# Build stage
+FROM python:${PYTHON_VERSION} AS base
+WORKDIR /app
+
+# Copy all from current folder
+COPY . ./
+
+# Runtime stage
+FROM python:${PYTHON_VERSION}-slim
+# Set the working directory within the container
+WORKDIR /app
+
+# Environtment variable to optimize the Python app for Docker:
+# writing logs directly to stdout and stderr without buffering in the app process memory.
+ENV PYTHONUNBUFFERED=1
+
+# Copy the built application and installed dependencies from the build stage
+COPY --from=base /app .
+
+# Install dependencies and database migration
+RUN pip install --upgrade pip && \
+pip install -r requirements.txt
+
+RUN python manage.py migrate
+
+# Expose port 8080 to the host
+EXPOSE 8080
+
+# Define the command to run the application
+ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:8080"]
