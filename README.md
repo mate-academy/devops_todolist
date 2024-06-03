@@ -1,5 +1,5 @@
 Можна скопіювати:
-docker pull oleksandrnechval55/todoapp-2
+docker pull oleksandrnechval55/todoapp-3
 
 1. Треба клонувати репозиторій на свій ПК:
 git clone https://github.com/....
