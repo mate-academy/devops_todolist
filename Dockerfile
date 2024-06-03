@@ -7,6 +7,8 @@ COPY . .
 
 FROM python:${PYTHON_VERSION}-slim
 
+ENV PYTHONUNBUFFERED=1
+
 WORKDIR /devops_todolist
 
 COPY --from=base /devops_todolist .
@@ -16,13 +18,12 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     default-libmysqlclient-dev \
     && rm -rf /var/lib/apt/lists/*
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8080
-
-ENV PYTHONUNBUFFERED=1
-
 RUN python manage.py migrate
+
+EXPOSE 8080
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
 
