@@ -44,3 +44,28 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+
+# Django ToDo App Dockerized
+## Отримання образу програми
+
+Образ програми доступний у моєму репозиторії Docker Hub за наступним посиланням:
+
+[Посилання на мій репозиторій Docker Hub](https://hub.docker.com/repository/docker/iryna0629/todoapp-py)
+
+## Інструкції по створенню та запуску контейнера
+
+1. **Завантаження образу**: Виконайте наступну команду, щоб завантажити образ програми з Docker Hub:
+
+   ```bash
+   docker pull iryna0629/todoapp-py
+2. **Створення та запуск контейнера**: Після завантаження образу виконайте наступну команду, щоб створити та запустити контейнер:
+
+    docker run -d -p 8080:8080 irina0629/todoapp-py:1.0.0
+
+3. **Перевірка запуску**:
+
+Перейдіть у ваш браузер та відкрийте адресу http://localhost:8080, щоб перевірити роботу вашого Django ToDo додатку.
+
+
+
