@@ -1,3 +1,21 @@
+# Instruction
+Docker repository with an app image:
+https://hub.docker.com/repository/docker/basilpanasiuk/todoapp/general
+
+To create image:
+```
+docker build -t todoapp:1.0.0 .
+```
+
+To run container:
+```
+docker run -p 8080:8080 todoapp:1.0.0
+```
+
+Link to open the app via browser: 
+http://localhost:8080/
+
+
 # Django ToDo list
 
 This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
