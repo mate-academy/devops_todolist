@@ -1,6 +1,6 @@
 # Instruction
 Docker repository with an app image:
-https://hub.docker.com/repository/docker/basilpanasiuk/todoapp/general
+[LINK](https://hub.docker.com/r/basilpanasiuk/todoapp)
 
 To create image:
 ```
