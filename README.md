@@ -44,3 +44,12 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+
+Commands to build and run and push:
+LINK: https://hub.docker.com/r/xthecutter/todoapp
+
+1. docker build -f ./docker/Dockerfile -t todoapp:1.0.0 .
+2. docker run -p 8080:8080 todoapp:1.0.0
+3. docker tag todoapp:1.0.0  xthecutter/todoapp
+4. docker run -p 8080:8080 xthecutter/todoapp
