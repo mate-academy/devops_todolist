@@ -18,7 +18,6 @@ WORKDIR /app
 COPY --from=build /build /app
 
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir django
 
 RUN python manage.py migrate
 
