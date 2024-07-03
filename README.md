@@ -49,7 +49,7 @@ Create a `Dockerfile` for the ToDo app:
 Commands to build and run and push:
 LINK: https://hub.docker.com/r/xthecutter/todoapp
 
-1. docker build -f ./docker/Dockerfile -t todoapp:1.0.0 .
-2. docker run -p 8080:8080 todoapp:1.0.0
+1. docker build -f Dockerfile -t todoapp_fix:1.1 .
+2. docker run -p 8080:8080 todoapp_fix:1.1
 3. docker tag todoapp:1.0.0  xthecutter/todoapp
 4. docker run -p 8080:8080 xthecutter/todoapp
