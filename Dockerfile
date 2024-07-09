@@ -6,14 +6,14 @@ ENV PYTHONUNBUFFERED=1
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file first to leverage Docker cache
-COPY requirements.txt /app/
+# Copy all app code into the container
+COPY . /app/
 
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code into the container
-COPY . /app
+# Run the database migrations
+RUN python manage.py migrate
 
 # Run stage
 FROM python:3.8-slim
@@ -34,4 +34,4 @@ COPY --from=builder /app /app
 EXPOSE 8080
 
 # Set the command to run the Django development server
-ENTRYPOINT ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8080"]
+ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:8080"]

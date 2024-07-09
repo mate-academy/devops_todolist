@@ -47,16 +47,16 @@ Create a `Dockerfile` for the ToDo app:
 
 ## Guide
 
-1. You can find the image by following the [link](https://hub.docker.com/layers/dariasavchenko/todoapp/1.0.0/images/sha256-314ab0a6d9d5b6c7ac890d7aa23271de93b1b2b866a058f93615b7bbb0876ec3?context=repo)
+1. You can find the adjusted image (todoapp:1.0.1) by following the [link](https://hub.docker.com/layers/dariasavchenko/todoapp/1.0.1/images/sha256-2d6d9bad93834f7bf80e589ede60c726bb028c60cdfed3b90c678c7136b6f6fa?context=repo) 
 2. To run the app you can follow the instruction below:
    1. Clone the repository
    2. Go to the /devops_todolist
    3. Build the image:
     ```
-    docker build -t todoapp:1.0.0 .
+    docker build -t todoapp:1.0.1 .
     ```
    4. Run the container:
    ```
-    docker run -p 8080:8080 todoapp:1.0.0
+    docker run -p 8080:8080 todoapp:1.0.1
     ```
 3. Now you can access the [API](http://127.0.0.1:8080/api/) or the [landing page](http://127.0.0.1:8080/)
