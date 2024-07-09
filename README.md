@@ -44,3 +44,19 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+## Guide
+
+1. You can find the image by following the [link](https://hub.docker.com/layers/dariasavchenko/todoapp/1.0.0/images/sha256-314ab0a6d9d5b6c7ac890d7aa23271de93b1b2b866a058f93615b7bbb0876ec3?context=repo)
+2. To run the app you can follow the instruction below:
+   1. Clone the repository
+   2. Go to the /devops_todolist
+   3. Build the image:
+    ```
+    docker build -t todoapp:1.0.0 .
+    ```
+   4. Run the container:
+   ```
+    docker run -p 8080:8080 todoapp:1.0.0
+    ```
+3. Now you can access the [API](http://127.0.0.1:8080/api/) or the [landing page](http://127.0.0.1:8080/)
