@@ -3,7 +3,7 @@
 This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
 
 - CSS | [Skeleton](http://getskeleton.com/)
-- JS  | [jQuery](https://jquery.com/)
+- JS | [jQuery](https://jquery.com/)
 
 ## Explore
 
@@ -44,3 +44,7 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+https://hub.docker.com/r/fredfredburger/todoapp
+To download an image run : docker pull fredfredburger/todoapp
+to run it : docker run -p 8080:8080 fredfredburger/todoapp
