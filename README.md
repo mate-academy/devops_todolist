@@ -44,3 +44,17 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+
+# Solution
+### Link to repo
+https://hub.docker.com/r/manjustice/todoapp/tags
+
+### Build instructions
+1. sudo docker build -t todoapp:1.0.0 .
+2. sudo docker run -p -d 8080:8080 --name todoapp-1 todoapp:1.0.0
+
+### Explore app
+Main page http://0.0.0.0:8080/
+
+API http://0.0.0.0:8080/api
