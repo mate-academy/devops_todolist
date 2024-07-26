@@ -1,18 +1,23 @@
-ARG PYTHON_VERSION=3.11-alpine
+ARG PYTHON_VERSION=3.11
+FROM python:${PYTHON_VERSION} AS base
 
-FROM python:${PYTHON_VERSION}
+WORKDIR /app
 
-ENV PYTHONDONTWRITEBYTECODE=1
+COPY . .
+
+
+FROM python:${PYTHON_VERSION}-alpine
+
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY requirements.txt ./
+
+COPY --from=base /app .
 
 RUN pip install --upgrade pip && \
 pip install -r requirements.txt
 
-COPY . .
 
 EXPOSE 8080
 
