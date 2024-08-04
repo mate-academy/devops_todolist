@@ -46,6 +46,12 @@ Create a `Dockerfile` for the ToDo app:
 1. Create PR with your changes and attach it for validation on a platform.
 
 
-[Link for docker hub](https://hub.docker.com/r/fredfredburger/todoapp)
-To download an image run : `docker pull maxim2310/todoapp:1.0`
-to run it : `docker run -p 8080:8080 maxim2310/todoapp:1.0`
+[Link for docker hub](https://hub.docker.com/repository/docker/maxim2310/todoapp/general)
+To download an image run :
+```
+docker pull maxim2310/todoapp:1.0
+```
+to run it :
+```
+docker run -p 8080:8080 maxim2310/todoapp:1.0
+```
