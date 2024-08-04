@@ -47,6 +47,7 @@ Create a `Dockerfile` for the ToDo app:
 
 
 [Link for docker hub](https://hub.docker.com/repository/docker/maxim2310/todoapp/general)
+
 To download an image run :
 ```
 docker pull maxim2310/todoapp:1.0
