@@ -13,12 +13,12 @@ docker build -f Dockerfile . -t todoapp:<image_version>
 
 Execute the next command to run the container
 ```
-docker run -p 8080:8080 todoapp:<image_version>
+docker run -d -p 8080:8080 todoapp:<image_version>
 ```
 
 # The instructions on accessing the application via a browser
 - Open your browser
-- Put the next link into the browser: http://0.0.0.0:8000/
+- Put the next link into the browser: http://localhost:8080/
 - Press enter
 
 # Django ToDo list
