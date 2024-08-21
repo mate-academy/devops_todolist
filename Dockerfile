@@ -3,7 +3,7 @@ FROM python:${PYTHON_VERSION} AS build
 
 WORKDIR /app
 
-COPY manage.py requirements.txt db.sqlite3 ./
+COPY manage.py requirements.txt ./
 
 COPY todolist/ ./todolist/
 
