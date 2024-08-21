@@ -1,31 +1,22 @@
-# Django ToDo list
+[Docker Hub App Image](https://hub.docker.com/repository/docker/artemmalikov/todoapp/general)
 
-This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
+# Setup & Run
 
-- CSS | [Skeleton](http://getskeleton.com/)
-- JS  | [jQuery](https://jquery.com/)
+1. Run Docker Desktop
 
-## Explore
+2. Pull the image:
 
-Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
+   ```bash
+   docker pull artemmalikov/todoapp:1.0.0
+   ```
 
-```
-pip install -r requirements.txt
-```
+3. Run the app:
 
-Create a database schema:
+   ```bash
+   docker run -p 8080:8080 artemmalikov/todoapp:1.0.0
+   ```
 
-```
-python manage.py migrate
-```
-
-And then start the server (default is http://localhost:8000):
-
-```
-python manage.py runserver
-```
-
-Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
+4. Visit the http://localhost:8080
 
 ## Task
 
