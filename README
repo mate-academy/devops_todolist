@@ -16,7 +16,7 @@ https://hub.docker.com/repository/docker/losiev/todoapp
 
 2. Build todoapp
 
-   docker build -t your_dockerhub_username/todoapp:1.0.0 .
+   docker build -t losiev/todoapp:1.0.0 .
 
 3. Container launch
 
