@@ -1,0 +1,24 @@
+# ToDo App
+
+It is a Django based ToDo app
+
+## Docker Hub
+
+My DockerHub link
+
+https://hub.docker.com/repository/docker/losiev/todoapp
+
+## Step by step instruction
+
+1. Clone forked dir
+
+   git clone https://github.com/Losiev/devops_todolist.git
+
+2. Build todoapp
+
+   docker build -t your_dockerhub_username/todoapp:1.0.0 .
+
+3. Container launch
+
+    docker run -d -p 8080:8080 losiev/todoapp:1.0.0
+
