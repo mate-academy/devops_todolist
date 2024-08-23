@@ -22,3 +22,6 @@ https://hub.docker.com/repository/docker/losiev/todoapp
 
     docker run -d -p 8080:8080 losiev/todoapp:1.0.0
 
+
+
+

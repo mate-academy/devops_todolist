@@ -1,4 +1,3 @@
-# Build
 ARG PYTHON_VERSION=3.8
 FROM python:${PYTHON_VERSION}-slim AS build
 
@@ -14,7 +13,6 @@ COPY . .
 
 RUN python manage.py migrate
 
-# Run
 FROM python:${PYTHON_VERSION}-slim AS run
 
 ENV PYTHONUNBUFFERED=1
@@ -22,6 +20,8 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY --from=build /app /app
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
