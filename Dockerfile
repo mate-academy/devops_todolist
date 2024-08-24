@@ -13,15 +13,9 @@ COPY . .
 
 RUN python manage.py migrate
 
-FROM python:${PYTHON_VERSION}-slim AS run
-
-ENV PYTHONUNBUFFERED=1
+FROM build AS run
 
 WORKDIR /app
-
-COPY --from=build /app /app
-
-RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
