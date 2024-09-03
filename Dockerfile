@@ -8,7 +8,7 @@ COPY ./api ./api
 COPY ./lists ./lists
 COPY ./static ./static
 COPY ./todolist ./todolist
-COPY db.sqlite3 requirements.txt manage.py ./
+COPY requirements.txt manage.py ./
 
 FROM python:${PYTHON_VERSION}-slim
 

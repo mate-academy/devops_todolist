@@ -50,7 +50,11 @@ Create a `Dockerfile` for the ToDo app:
     https://hub.docker.com/repository/docker/valerakb/todoapp/general
 
 ## Build and run the container
-For building and running the container download image and run next:
+For building the container run next:
+
+    docker build -f Dockerfile . -t todoapp:1.0.0
+
+For running the container download image and run next:
 
     docker run -p 8080:8080 todoapp:1.0.0
 
