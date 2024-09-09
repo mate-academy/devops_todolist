@@ -1,46 +1,20 @@
-# Django ToDo list
+# ToDo App
 
-This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
+## Docker Hub Repository
 
-- CSS | [Skeleton](http://getskeleton.com/)
-- JS  | [jQuery](https://jquery.com/)
+You can find the Docker image for this app at the following link:
+[https://hub.docker.com/r/poznianski/todoapp](https://hub.docker.com/r/poznianski/todoapp)
 
-## Explore
+## Building the Docker Image
 
-Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
+To build the Docker image, use the following command:
 
-```
-pip install -r requirements.txt
-```
+`docker build -t poznianski/todoapp:1.0.0 .`
 
-Create a database schema:
+To run the Docker container, use the following command:
 
-```
-python manage.py migrate
-```
+`docker run -p 8080:8080 poznianski/todoapp:1.0.0`
 
-And then start the server (default is http://localhost:8000):
+Once the container is running, you can access the application via your browser at:
 
-```
-python manage.py runserver
-```
-
-Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
-
-## Task
-
-Create a `Dockerfile` for the ToDo app:
-
-1. Fork this repository.
-1. ToDo app should start inside a container without an error.
-1. `Dockerfile` should contain the build stage and run stage.
-1. Add `ARG` as Python base image version in `Dockerfile`.
-1. Execute database migration as `RUN` instruction.
-1. Add the `ENV PYTHONUNBUFFERED=1` variable to optimize the Python app for Docker (writing logs directly to `stdout` and `stderr` without buffering in the app process memory.
-1. `runserver` should be followed by the `0.0.0.0:8080` parameter to start the Django server properly.
-1. Build an image and name it `todoapp`.
-1. The image should be pushed to your personal Docker Hub account into the `todoapp` repository with the `1.0.0` tag (`todoapp:1.0.0`).
-1. `README.md` should contain a link to your personal Docker Hub repository win an app image.
-1. `README.md` should contain all the instructions for building and running the container.
-1. `README.md` should contain instructions on accessing the application via a browser.
-1. Create PR with your changes and attach it for validation on a platform.
+`http://localhost:8080`
