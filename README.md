@@ -27,6 +27,8 @@ python manage.py runserver
 
 Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
 
+Link to Docker Hub repository (https://hub.docker.com/repository/docker/dumavb/todoapp)
+
 ## Task
 
 Create a `Dockerfile` for the ToDo app:
