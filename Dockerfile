@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-FROM python:${PYTHON_VERSION}-slim
+FROM python:${PYTHON_VERSION}-slim AS Run
 
 ENV PYTHONUNBUFFERED=1
 
