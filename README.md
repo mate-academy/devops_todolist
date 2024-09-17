@@ -10,22 +10,18 @@ This is a todo list web application with basic features of most web apps, i.e., 
 ```
 https://hub.docker.com/r/lavryniuk/todoapp
 ```
+
 2. You need pull image locally
 ```
 docker pull lavryniuk/todoapp:1.0.0
 ```
 
-3. You need build image
-```
-docker build -t lavryniuk/todoapp:1.0.0 .
-```
-
-4. You need run container
+3. You need run a container
 ```
 docker run -p 8081:8080 lavryniuk/todoapp:1.0.0
 ```
 
-5. Open application in browser
+4. Open application in browser
 ```
 http://localhost:8081/
 ```
