@@ -53,7 +53,7 @@ It is a to-do list management web application developed using Django.
 
 [Link to application image on Docker Hub](https://hub.docker.com/repository/docker/maks2531/todoapp/general)
 
-## Installation and Launch
+## How to run the application
 
 1. **Clone the repository:**
    ```bash
@@ -61,7 +61,7 @@ It is a to-do list management web application developed using Django.
    cd devops_todolist
 2. **Build a Docker image:**
    ```python
-   docker build -t todoapp:1.0.0 .
+   docker build -t maks2531/todoapp:1.0.0 .
 3. **Run the Docker container:**
    ```python
    docker run -p 8080:8080 maks2531/todoapp:1.0.0
