@@ -1,0 +1,7 @@
+.dockerignore
+.git*
+.pre-commit-config.yaml
+.travis.yml
+Dockerfile
+LICENSE
+README.md
