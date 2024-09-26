@@ -3,11 +3,7 @@ FROM python:${PYTHON_VERSION} AS base
 
 WORKDIR /app
 
-COPY ./accounts ./accounts
-COPY ./api ./api
-COPY ./lists ./lists
-COPY ./todolist ./todolist
-COPY manage.py requirements.txt ./
+COPY . .
 
 FROM python:${PYTHON_VERSION}-slim
 
