@@ -3,7 +3,7 @@ FROM python:${PYTHON_VERSION} AS build
 
 WORKDIR /todoapp
 
-ADD https://github.com/yaroslav-demchenko/devops_todolist.git ./
+COPY . .
 
 FROM python:${PYTHON_VERSION}-slim AS run
 
