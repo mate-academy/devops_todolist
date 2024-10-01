@@ -1,12 +1,17 @@
 ARG PYTHON_VERSION=3.8
-
-FROM python:${PYTHON_VERSION} AS runtime
+FROM python:${PYTHON_VERSION} AS base
 
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
 COPY . .
+
+FROM python:${PYTHON_VERSION} AS runtime
+
+WORKDIR /app
+
+COPY --from=base /app /app
 
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
