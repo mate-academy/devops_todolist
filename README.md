@@ -1,46 +1,52 @@
-# Django ToDo list
+# Devops To-Do List Application
 
-This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
+This is a simple Django-based To-Do List application built with Docker.
 
-- CSS | [Skeleton](http://getskeleton.com/)
-- JS  | [jQuery](https://jquery.com/)
 
-## Explore
 
-Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
+## Docker Hub Repository
 
-```
-pip install -r requirements.txt
-```
+You can find the Docker image for this application on Docker Hub:
 
-Create a database schema:
+https://hub.docker.com/repository/docker/limbx/todoapp
 
-```
-python manage.py migrate
-```
+To pull the image from Docker Hub 
 
-And then start the server (default is http://localhost:8000):
+docker pull limbx/todoapp:1.0.0
 
-```
-python manage.py runserver
-```
 
-Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
 
-## Task
+## GitHub
 
-Create a `Dockerfile` for the ToDo app:
+### Step 1: Clone the Repository
+If you're working with the source code, clone the project repository:
 
-1. Fork this repository.
-1. ToDo app should start inside a container without an error.
-1. `Dockerfile` should contain the build stage and run stage.
-1. Add `ARG` as Python base image version in `Dockerfile`.
-1. Execute database migration as `RUN` instruction.
-1. Add the `ENV PYTHONUNBUFFERED=1` variable to optimize the Python app for Docker (writing logs directly to `stdout` and `stderr` without buffering in the app process memory.
-1. `runserver` should be followed by the `0.0.0.0:8080` parameter to start the Django server properly.
-1. Build an image and name it `todoapp`.
-1. The image should be pushed to your personal Docker Hub account into the `todoapp` repository with the `1.0.0` tag (`todoapp:1.0.0`).
-1. `README.md` should contain a link to your personal Docker Hub repository win an app image.
-1. `README.md` should contain all the instructions for building and running the container.
-1. `README.md` should contain instructions on accessing the application via a browser.
-1. Create PR with your changes and attach it for validation on a platform.
+git clone https://github.com/L1mbxbx/devops_todolist
+cd devops_todolist
+
+### Step 2: Build the Docker Image
+If you want to build the Docker image locally instead of pulling from Docker Hub, run:
+
+docker build -t todoapp:1.0.0 .
+
+### Step 3: Running the Docker Container
+To run the container, use the following command:
+
+docker run -d -p 8080:8080 todoapp:1.0.0
+
+### Step 4: Access the Application in a Browser
+
+Once the container is running, open a web browser and go to:
+
+http://localhost:8080
+
+
+
+## Stopping the Container
+
+To stop the running container, find the container ID using:
+
+docker ps
+docker stop <container_id>
+
+Replace <container_id> with the actual container ID.
