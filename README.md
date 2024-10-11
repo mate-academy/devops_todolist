@@ -54,5 +54,5 @@ docker pull nmakivchuk01/todoapp
 ```
 to run it :
 ```
-docker run -p 8080:8080 nmakivchuk01/todoapp:latest
+docker run -p 8080:8080 nmakivchuk01/todoapp:1.0.0
 ```
