@@ -44,3 +44,23 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+
+
+
+Instructions for Building and Running the Container
+
+step one: git clone
+cd devops_todolist
+
+Step 2: Build the Docker image
+docker build -t garimanblack/devops_todolist:1.0.0 .
+
+Step 3: Launch the Docker container
+docker run -p 8080:8080 garimanblack/devops_todolist:1.0.0
+
+Step 4: Access the application
+http://localhost:8080
+
+Docker Hub
+Docker Hub: https://hub.docker.com/r/garimanblack/devops_todolist
