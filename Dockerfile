@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-FROM python:${PYTHON_VERSION}-slim
+FROM python:${PYTHON_VERSION}-slim as run
 
 ENV PYTHONUNBUFFERED=1
 
@@ -13,8 +13,9 @@ WORKDIR /app
 
 COPY --from=base /app .
 
-RUN pip install -r requirements.txt && \
-    python manage.py migrate
+RUN pip install -r requirements.txt
+
+RUN python manage.py migrate
 
 EXPOSE 8080
 
