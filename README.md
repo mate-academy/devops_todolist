@@ -44,3 +44,10 @@ Create a `Dockerfile` for the ToDo app:
 1. `README.md` should contain all the instructions for building and running the container.
 1. `README.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+##
+
+1. Go to https://hub.docker.com/r/karaed/todoapp.
+2. docker pull karaed/todoapp:1.0.0
+3. docker run -p 8080:8080 karaed/todoapp:1.0.0
+4. Open http://localhost:8080/ to test the app.
