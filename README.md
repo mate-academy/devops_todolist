@@ -60,5 +60,5 @@ The Docker image for this application is available on Docker Hub:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-github-username/todoapp.git
+   git clone https://github.com/annak1104/devops_todolist.git
    cd todoapp
