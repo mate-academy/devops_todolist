@@ -11,7 +11,7 @@ Search for the Dockerized application [here](https://hub.docker.com/repository/d
 
 To pull the container, use the following command:
 ```bash
-docker push andriiky/todoapp:1.0.0
+docker pull andriiky/todoapp:1.0.0
 ```
 
 Use the following command to build the container:
