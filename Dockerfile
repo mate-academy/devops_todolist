@@ -6,7 +6,7 @@ WORKDIR /devops_todolist
 COPY . ./
 
 # Runtime stage
-FROM python:${PYTHON_VERSION}-slim
+FROM python:${PYTHON_VERSION}-slim AS test
 WORKDIR /devops_todolist
 
 # Set an environment variable for the runtime
