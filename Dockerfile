@@ -8,14 +8,9 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-FROM python:${PYTHON_VERSION}-slim
-
-ENV PYTHONUNBUFFERED=1
+FROM build AS final-stage
 
 WORKDIR /app
-
-COPY --from=build /usr/local/lib/python3.10/ /usr/local/lib/python3.10/
-COPY --from=build /usr/local/bin/ /usr/local/bin/
 
 COPY . .
 
