@@ -1,46 +1,31 @@
-# Django ToDo list
+# ToDo App
 
-This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
+## Docker Hub Repository
+You can pull the prebuilt Docker image from my personal Docker Hub repository:
 
-- CSS | [Skeleton](http://getskeleton.com/)
-- JS  | [jQuery](https://jquery.com/)
+[ToDo App Docker Hub Repository](https://hub.docker.com/r/ruslanskl/todoapp)
 
-## Explore
+## Pull and Run Instructions
 
-Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
+- Ensure Docker is installed and running on your machine. You can download Docker from [here](https://www.docker.com/get-started).
 
-```
-pip install -r requirements.txt
-```
+### Pull the Docker Image
+To pull the prebuilt Docker image from Docker Hub, run the following command:
 
-Create a database schema:
+`docker pull ruslanskl/todoapp:1.0.0`
 
-```
-python manage.py migrate
-```
+This command will download the todoapp:1.0.0 image from the Docker Hub repository.
 
-And then start the server (default is http://localhost:8000):
+### Run the Docker Container
 
-```
-python manage.py runserver
-```
+Once the image is pulled, you can run the Docker container with the following command:
 
-Now you can browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
+`docker run -p 8080:8080 ruslanskl/todoapp:1.0.0`
 
-## Task
+This will start the container, binding port 8080 inside the container to port 8080 on your local machine.
 
-Create a `Dockerfile` for the ToDo app:
+## Access the Application
+After running the container, open your web browser and navigate to the following URL to access the ToDo app:
 
-1. Fork this repository.
-1. ToDo app should start inside a container without an error.
-1. `Dockerfile` should contain the build stage and run stage.
-1. Add `ARG` as Python base image version in `Dockerfile`.
-1. Execute database migration as `RUN` instruction.
-1. Add the `ENV PYTHONUNBUFFERED=1` variable to optimize the Python app for Docker (writing logs directly to `stdout` and `stderr` without buffering in the app process memory.
-1. `runserver` should be followed by the `0.0.0.0:8080` parameter to start the Django server properly.
-1. Build an image and name it `todoapp`.
-1. The image should be pushed to your personal Docker Hub account into the `todoapp` repository with the `1.0.0` tag (`todoapp:1.0.0`).
-1. `README.md` should contain a link to your personal Docker Hub repository win an app image.
-1. `README.md` should contain all the instructions for building and running the container.
-1. `README.md` should contain instructions on accessing the application via a browser.
-1. Create PR with your changes and attach it for validation on a platform.
+http://localhost:8080
+You should now be able to see the ToDo app running and interact with it via your browser.
