@@ -45,3 +45,21 @@ Create a `Dockerfile` for the ToDo app:
 1. `INSTRUCTION.md` should contain all the instructions for building and running the container.
 1. `INSTRUCTION.md` should contain instructions on accessing the application via a browser.
 1. Create PR with your changes and attach it for validation on a platform.
+
+
+## Docker Image
+
+The Docker image for this application is available on Docker Hub:
+[Docker Hub Repository](https://hub.docker.com/repository/docker/annak1104/todoapp/general)
+
+## Build and Run Instructions
+
+### Prerequisites
+- Docker installed on your local machine.
+
+### Steps to Build and Run the Container
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/annak1104/devops_todolist.git
+   cd todoapp
