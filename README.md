@@ -5,6 +5,28 @@ This is a to-do list web application with basic features of most web apps, i.e.,
 - CSS | [Skeleton](http://getskeleton.com/)
 - JS  | [jQuery](https://jquery.com/)
 
+## Docker
+
+Search for the Dockerized application [here](https://hub.docker.com/repository/docker/andriiky/todoapp/general).
+
+To pull the container, use the following command:
+```bash
+docker pull andriiky/todoapp:1.0.0
+```
+
+Use the following command to build the container:
+```bash
+docker build --build-arg PYTHON_VERSION=<version> . -t todoapp:<tagname>
+```
+
+Then, run the container:
+```bash
+docker run --name todoapp -p 8080:8080 todoapp:<tabname>
+```
+
+Head over to the `http://0.0.0.0:8080/` URL to access the webpage.
+
+
 ## Explore
 
 Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
