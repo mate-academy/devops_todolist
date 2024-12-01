@@ -1,6 +1,3 @@
-# Devops ToDo list
-
-# Docker Hub Repository:
 
 The Docker image for this application is hosted on Docker Hub and can be pulled using the following command:
 
@@ -16,4 +13,3 @@ docker build -t konstant1nou77/todoapp:1.0.0 .
 
 docker run -p 8080:8080 konstant1nou77/todoapp:1.0.0
 
-The application will be available at: http://0.0.0.0:8080
