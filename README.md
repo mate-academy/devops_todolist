@@ -12,4 +12,4 @@ Open your browser and go to:
 http://localhost:8080
 
 The Docker image is also available on Docker Hub:
-https://hub.d
+https://hub.docker.com/repository/docker/salo2452/docker-by-practice/general
