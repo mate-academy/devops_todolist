@@ -1,0 +1,7 @@
+logs
+*.logs
+.venv
+.github
+.gitignore
+LICENSE
+README.md
