@@ -1,0 +1,13 @@
+.github
+.venv
+.gitignore
+.pre-commit-config.yaml
+.travis.yml
+LICENSE
+README.md
+Dockerfile
+docker-compose.yml
+*.sqlite3
+.DS_Store
+.idea
+.vscode
