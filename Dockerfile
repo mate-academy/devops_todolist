@@ -10,7 +10,7 @@ FROM python:${PV}-slim AS run
 
 WORKDIR /my_docker_app
 
-ENV PYTHONUNBUFFERED=1  
+ENV PYTHONUNBUFFERED=1
 
 COPY --from=base /my_docker_app .
 
@@ -19,4 +19,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt &&\
 
 EXPOSE 8080
 
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8080"]
+ENTRYPOINT ["python3", "manage.py", "runserver", "0.0.0.0:8080"]
