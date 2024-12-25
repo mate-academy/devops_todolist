@@ -1,0 +1,25 @@
+# Ігноруємо Git
+.git
+
+# Ігноруємо кеші Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ігноруємо віртуальні середовища
+.venv
+env/
+venv/
+
+# Ігноруємо файли налаштувань IDE
+.idea
+.vscode
+
+# Ігноруємо тимчасові файли
+*.log
+*.tmp
+
+# Ігноруємо файли конфігурації Docker
+Dockerfile*
+.dockerignore
