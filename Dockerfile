@@ -2,7 +2,11 @@ ARG PYTHON_VERSION=3.8
 FROM python:${PYTHON_VERSION} AS base
 WORKDIR /app
 
-COPY .. ./
+COPY manage.py requirements.txt /app/
+COPY todolist/ /app/todolist/
+COPY lists/ /app/lists/
+COPY accounts/ /app/accounts/
+COPY api/ /app/api/
 
 FROM python:${PYTHON_VERSION}-slim
 WORKDIR /app
