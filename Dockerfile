@@ -1,28 +1,19 @@
-ARG PYTHON_VERSION=3.8
 # Build stage
+ARG PYTHON_VERSION=3.8
 FROM python:${PYTHON_VERSION} AS base
 ENV PYTHONUNBUFFERED=1
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install --upgrade pip && \
-pip install -r requirements.txt
-
 COPY . .
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    python manage.py migrate
 
-RUN python manage.py migrate
-# run stage
-FROM python:${PYTHON_VERSION}
-
-WORKDIR /app
-
-
-COPY --from=base /app /app
-
-COPY --from=base /usr/local/lib/python3.8 /usr/local/lib/python3.8
-COPY --from=base /usr/local/bin /usr/local/bin
-
+FROM python:${PYTHON_VERSION}-slim
 ENV PYTHONUNBUFFERED=1
-
+WORKDIR /app
+COPY --from=base /app /app
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
 EXPOSE 8080
-
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+
