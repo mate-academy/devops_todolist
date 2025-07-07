@@ -13,8 +13,6 @@ RUN pip install --upgrade pip && \
 
 COPY . .
 
-RUN python manage.py migrate
-
 FROM python:${PYTHON_VERSION}-slim AS runner
 
 ENV PYTHONUNBUFFERED=1
@@ -22,11 +20,11 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 
-COPY --from=base /app .
+COPY --from=base /app /app
 
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
 EXPOSE 8080
 
-ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+ENTRYPOINT ["sh", "-c", "python manage.py migrate && exec python manage.py runserver 0.0.0.0:8080"]
