@@ -1,13 +1,13 @@
 ARG PYTHON_VERSION=3.11
 
-FROM python:${PYTHON_VERSION}-slim as builder
+FROM python:${PYTHON_VERSION}-slim AS builder
 
 WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-FROM python:${PYTHON_VERSION}-slim as runner
+FROM python:${PYTHON_VERSION}-slim AS runner
 
 ENV PYTHONUNBUFFERED=1
 
