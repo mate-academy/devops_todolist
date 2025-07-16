@@ -19,10 +19,6 @@ WORKDIR /app
 COPY --from=build /install /usr/local
 COPY --from=build /app /app
 
-# Виконуємо міграції
-RUN python manage.py migrate
-
 EXPOSE 8080
 
-# 👇 Тимчасово додаємо * до ALLOWED_HOSTS лише в контейнері
-CMD ["sh", "-c", "sed -i \"s/^ALLOWED_HOSTS = .*/ALLOWED_HOSTS = ['*']/\" todolist/settings.py && python manage.py runserver 0.0.0.0:8080"]
+CMD ["sh", "-c", "sed -i \"s/^ALLOWED_HOSTS = .*/ALLOWED_HOSTS = ['*']/\" todolist/settings.py && python manage.py migrate && python manage.py runserver 0.0.0.0:8080"]

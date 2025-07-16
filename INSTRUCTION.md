@@ -1,14 +1,6 @@
-# ToDo App – Dockerized
+# 📝 ToDo App — Dockerized Django Project
 
-## 🐳 Docker Hub
+## 🐳 Docker Hub Image
 
-Docker Hub: https://hub.docker.com/r/vitalysemeniv/todoapp  
-Image: `vitalysemeniv/todoapp:1.0.0`
+🔗 https://hub.docker.com/r/vitalysemeniv/todoapp
 
----
-
-## 🔨 Build Docker Image
-
-```bash
-docker build -t vitalysemeniv/todoapp:1.0.0 .
-#all
