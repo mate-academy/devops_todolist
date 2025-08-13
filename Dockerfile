@@ -1,12 +1,12 @@
 # build stage
-FROM python:3.10-slim as build 
 ARG PYTHON_BASE_VERSION=3.10
+FROM python:${PYTHON_BASE_VERSION}-slim as build 
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt 
 
 # run stage
-FROM python:3.10-slim
+FROM python:${PYTHON_BASE_VERSION}-slim
 ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 COPY . .
