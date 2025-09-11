@@ -11,4 +11,4 @@ docker build --build-arg PYTHON_VERSION=3.12 -t todoapp:1.0.0 .
 
 docker run --name todoapp -p 8080:8080 -d ariohdk/todoapp:1.0.0
 
-http://localhost:8080
+http://localhost:8080 
