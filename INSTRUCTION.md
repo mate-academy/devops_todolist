@@ -1,5 +1,5 @@
 # 1. Docker hub repo:
-https://hub.docker.com/repository/docker/svyat2x/todoapp/tags/latest/sha256-1bf9eac1ad6a4b23e9236483cba67531fffe7edbbb8642371f1ebbec206bb629
+https://hub.docker.com/r/svyat2x/todoapp/tags?name=ы1.0.0
 
 # 2. Create docker build:
 docker build -t svyat2x/todoapp:1.0.0 -t todoapp .
