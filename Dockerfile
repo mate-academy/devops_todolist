@@ -5,17 +5,18 @@ WORKDIR /app
 
 COPY . .
 
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    python manage.py migrate
+
 FROM python:${PYTHON_VERSION}-slim
 
 WORKDIR /app
 
-ENV ENV="local"
+ENV APP_ENV="local"
 ENV PYTHONUNBUFFERED=1
 COPY --from=builder /app ./
-
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt && \
-    python manage.py migrate
+COPY --from=builder /usr/local /usr/local
 
 EXPOSE 8080
 
