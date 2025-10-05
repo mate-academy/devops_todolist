@@ -1,30 +1,35 @@
-# Використовуємо Python як базовий образ
+# ---------- Builder stage ----------
 ARG PYTHON_VERSION=3.10
-FROM python:${PYTHON_VERSION}-slim
+FROM python:${PYTHON_VERSION}-slim AS builder
 
-# Встановлюємо змінну для логів
 ENV PYTHONUNBUFFERED=1
 
-# Встановлюємо системні залежності
+# Системні залежності
 RUN apt-get update && apt-get install -y gcc libpq-dev && rm -rf /var/lib/apt/lists/*
 
-# Робоча папка всередині контейнера
 WORKDIR /app
 
-# Копіюємо файл залежностей
+# Копіюємо залежності та встановлюємо
 COPY requirements.txt .
-
-# Встановлюємо Python-залежності
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Копіюємо увесь проект
+# Копіюємо весь проєкт
 COPY . .
 
-# Виконуємо міграції
+# Виконуємо міграції під час збірки
 RUN python manage.py migrate
 
-# Відкриваємо порт
+# ---------- Runtime stage ----------
+FROM python:${PYTHON_VERSION}-slim AS runtime
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Копіюємо лише необхідне з builder
+COPY --from=builder /app /app
+
 EXPOSE 8080
 
-# Команда запуску
+# Запуск Django
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
