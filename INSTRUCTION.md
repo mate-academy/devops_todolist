@@ -12,6 +12,10 @@ docker build -t todoapp:1.0.0 .
 docker run -d -p 8080:8080 todoapp:1.0.0
 ```
 
+## Access to the running container
+
+http://localhost:8080
+
 ## Link to dockerhub
 
 https://hub.docker.com/r/petrokurinnyi/todoapp
