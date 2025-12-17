@@ -24,9 +24,6 @@ And then start the server (default is http://localhost:8000):
 ```
 python manage.py runserver
 ```
-
-You can now browse the [API](http://localhost:8000/api/) or start on the [landing page](http://localhost:8000/).
-
 ## Task
 
 Create a `Dockerfile` for the ToDo app:
