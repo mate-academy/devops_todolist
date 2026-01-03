@@ -21,3 +21,6 @@ results
 logs
 *.logs
 venv
+
+# IDEs
+.idea/
