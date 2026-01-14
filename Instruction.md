@@ -22,7 +22,7 @@ ikocherovets/todoapp:1.0.0
 
 From the project root directory, run:
 
-docker build -t todoapp:1.0.0 -f Dockerfile.multistage .
+docker build -t todoapp:1.0.0 .
 
 Verify that the image was built successfully:
 
