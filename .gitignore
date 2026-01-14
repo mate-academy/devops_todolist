@@ -21,4 +21,4 @@ results
 logs
 *.logs
 venv
-idea
+.idea
