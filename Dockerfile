@@ -11,6 +11,8 @@ COPY . .
 
 # Runtime stage
 FROM python:${PYTHON_VERSION}-slim
+# Повторно оголошуємо ARG всередині другого етапу
+ARG PYTHON_VERSION
 WORKDIR /app
 
 # Set an environment variable for the runtime
