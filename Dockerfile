@@ -8,11 +8,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 COPY . .
 
-
-# Runtime stage
-FROM python:${PYTHON_VERSION}-slim
 # Повторно оголошуємо ARG всередині другого етапу
 ARG PYTHON_VERSION
+# Runtime stage
+FROM python:${PYTHON_VERSION}-slim
+
 WORKDIR /app
 
 # Set an environment variable for the runtime
