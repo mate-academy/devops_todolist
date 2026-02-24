@@ -2,7 +2,7 @@
 
 ## Docker Hub Repository
 
-https://hub.docker.com/r/petliuk/devops_todolist
+https://hub.docker.com/r/petliuk/todoapp
 
 ---
 
@@ -10,42 +10,32 @@ https://hub.docker.com/r/petliuk/devops_todolist
 
 Build the Docker image with the required tag:
 
-docker build -t petliuk/devops_todolist:1.0.0 .
+docker build -t petliuk/todoapp:1.0.0 .
 
 ---
 
 ## 2️⃣ Login to Docker Hub
 
-Login to your Docker Hub account:
-
 docker login
 
 ---
 
-## 3️⃣ Push Image to Docker Hub
+## 3️⃣ Push Image
 
-Push the image to your personal repository:
-
-docker push petliuk/devops_todolist:1.0.0
+docker push petliuk/todoapp:1.0.0
 
 ---
 
 ## 4️⃣ Run the Container
 
-Run the container locally:
-
-docker run -p 8080:8080 petliuk/devops_todolist:1.0.0
+docker run -p 8080:8080 petliuk/todoapp:1.0.0
 
 Explanation:
-
 - `-p 8080:8080` maps container port 8080 to your local machine.
-- The Django server runs on `0.0.0.0:8080` inside the container.
-- After running the container, the application becomes доступною у браузері.
+- Django runs on `0.0.0.0:8080`.
 
 ---
 
 ## 5️⃣ Access the Application
-
-Open your browser and go to:
 
 http://localhost:8080
