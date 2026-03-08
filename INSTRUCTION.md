@@ -10,7 +10,7 @@ Image tag:
 
 todoapp:1.0.0
 
----
+----
 
 ## Build Docker image
 
