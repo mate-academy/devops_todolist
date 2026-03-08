@@ -4,7 +4,7 @@
 
 Docker image is available here:
 
-https://hub.docker.com/r/YOUR_DOCKERHUB_USERNAME/todoapp
+https://hub.docker.com/r/ecl1pseeeee/todoapp
 
 Image tag:
 
@@ -35,3 +35,4 @@ Open your browser and go to:
 http://localhost:8080
 
 You should see the Django ToDo application running inside the Docker container.
+
