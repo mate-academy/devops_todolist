@@ -2,8 +2,7 @@
 
 ## Docker Hub
 
-https://hub.docker.com/repository/docker/ellipsis1337/todo_list/general
-
+https://hub.docker.com/repository/docker/ellipsis1337/todoapp/general
 ## Build
 
 ```bash

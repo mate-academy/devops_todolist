@@ -1,16 +1,16 @@
 ARG PYTHON_VERSION=3.13
 
-FROM python:${PYTHON_VERSION} as base
+FROM python:${PYTHON_VERSION} AS base
 
 WORKDIR /app
-
-ENV PYTHONUNBUFFERED=1
 
 COPY . .
 
 FROM python:${PYTHON_VERSION}-slim
 
-WORKDIR app
+WORKDIR /app
+
+ENV PYTHONUNBUFFERED=1
 
 COPY --from=base /app .
 
