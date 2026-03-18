@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS app_db;
+
+CREATE USER IF NOT EXISTS 'app_user'@'%' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON app_db.* TO 'app_user'@'%';
+
+USE app_db;
+
+CREATE TABLE IF NOT EXISTS counter (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    value INT
+);
