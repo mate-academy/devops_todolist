@@ -1,0 +1,48 @@
+# Python env
+.venv/
+venv/
+env/
+ENV/
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+# Django stuff:
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+# Node / frontend
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+# Git
+.git
+.gitignore
+# Docker / build artifacts
+docker-compose.override.yml
+Dockerfile.*
+*.tar
+*.tgz
+# IDE / editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+# OS files
+.DS_Store
+Thumbs.db
+# Virtualenv / pip cache
+pip-wheel-metadata/
+pip-log.txt
+*.egg-info/
+# Tests / coverage
+.coverage
+.tox/
+.pytest_cache/
+# Other
+.env
+*.pem
+*.key
