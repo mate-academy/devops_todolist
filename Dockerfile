@@ -1,15 +1,17 @@
-ARG PYTHON_VERSION=3.10
+ARG PYTHON_VERSION=3.11
 
-FROM python:3.10-slim
-
+# Етап збірки
+FROM python:${PYTHON_VERSION}-slim AS builder
 WORKDIR /app
-ENV PYTHONUNBUFFERED=1
-
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
-
+RUN pip install -r requirements.txt
 COPY . .
 
-RUN python manage.py migrate
-
+# Етап виконання
+FROM python:${PYTHON_VERSION}-slim AS runtime
+WORKDIR /app
+COPY --from=builder /app /app
+# Встановлюємо залежності ще раз у фінальному образі
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]

@@ -2,7 +2,7 @@
 
 ## Docker Hub репозиторій
 Образ програми доступний у вашому особистому репозиторії Docker Hub:  
-👉 https://hub.docker.com/r/olexandrkv/todoapp
+ https://hub.docker.com/r/olexandrkv/todoapp
 
 ---
 
