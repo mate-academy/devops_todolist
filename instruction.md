@@ -4,7 +4,7 @@
 
 The pre-built image is available at:
 
-👉 **https://hub.docker.com/r/your-dockerhub-username/todoapp**
+👉 **https://app.docker.com/accounts/dkedo**
 
 ```
 your-dockerhub-username/todoapp:1.0.0
@@ -26,7 +26,7 @@ your-dockerhub-username/todoapp:1.0.0
 ## 1 · Clone the repository
 
 ```bash
-git clone https://github.com/<your-github-username>/todoapp.git
+git clone https://github.com/<your-github-dkedo>/todoapp.git
 cd todoapp
 ```
 
@@ -103,7 +103,7 @@ docker rm todoapp
 docker login
 
 # Tag with your Docker Hub username
-docker tag todoapp:1.0.0 your-dockerhub-username/todoapp:1.0.0
+docker tag todoapp:1.0.0 your-dockerhub-dkedo/todoapp:1.0.0
 
 # Push
 docker push your-dockerhub-username/todoapp:1.0.0
@@ -116,7 +116,7 @@ docker push your-dockerhub-username/todoapp:1.0.0
 If you just want to run the app without cloning the repo:
 
 ```bash
-docker pull your-dockerhub-username/todoapp:1.0.0
+docker pull your-dockerhub-dkedo/todoapp:1.0.0
 
 docker run -d \
   --name todoapp \
