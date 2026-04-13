@@ -2,16 +2,14 @@
 
 ## Docker Hub Repository
 
-Replace `<your-dockerhub-username>` with your Docker Hub username:
-
-https://hub.docker.com/r/<your-dockerhub-username>/todoapp
+https://hub.docker.com/r/dimonalek/todoapp
 
 ## Build the image
 
 From the project root (`devops_todolist`):
 
 ```powershell
-docker build -f DockerFile -t todoapp .
+docker build -t dimonalek/todoapp:1.0.0 .
 ```
 
 ## Tag and push image to Docker Hub
@@ -22,22 +20,16 @@ docker build -f DockerFile -t todoapp .
 docker login
 ```
 
-2. Tag the image with the required version:
+2. Push the image:
 
 ```powershell
-docker tag todoapp <your-dockerhub-username>/todoapp:1.0.0
-```
-
-3. Push the image:
-
-```powershell
-docker push <your-dockerhub-username>/todoapp:1.0.0
+docker push dimonalek/todoapp:1.0.0
 ```
 
 ## Run the container
 
 ```powershell
-docker run --rm -p 8080:8080 <your-dockerhub-username>/todoapp:1.0.0
+docker run --rm -p 8080:8080 dimonalek/todoapp:1.0.0
 ```
 
 If you want to run your local image (without pull), use:
@@ -55,3 +47,11 @@ http://localhost:8080/
 API endpoint:
 
 http://localhost:8080/api/
+
+## Note on database migrations
+
+The `Dockerfile` runs `python manage.py migrate` during the image build stage using the bundled SQLite database. If you switch to a remote database (e.g., PostgreSQL), the build-time migration will fail because the database is not reachable at build time. In that case, remove the `RUN python manage.py migrate` line from the `Dockerfile` and run migrations at container startup instead — for example by overriding the container command:
+
+```powershell
+docker run --rm -p 8080:8080 dimonalek/todoapp:1.0.0 sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8080"
+```
