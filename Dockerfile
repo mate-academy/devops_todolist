@@ -7,7 +7,6 @@ COPY . ./
 ENV PYTHONPATH=/packages
 RUN python manage.py migrate
 # Run stage
-ARG PYTHON_VERSION=3.8-slim
 FROM python:${PYTHON_VERSION}
 WORKDIR /app
 ENV PYTHONUNBUFFERED=1
