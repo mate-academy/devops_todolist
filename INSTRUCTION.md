@@ -5,4 +5,4 @@ docker build -t todoapp .
 docker run -p 8080:8080 todoapp
 
 instructions on accessing the application via a browser:
-go to http://localhost:8080
+go to http://localhost:8080 

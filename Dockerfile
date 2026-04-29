@@ -14,5 +14,3 @@ ENV PYTHONPATH=/packages
 COPY --from=builder /packages /packages
 COPY --from=builder /app /app
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
-
-
