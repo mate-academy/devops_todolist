@@ -1,4 +1,5 @@
 # ToDo App Docker Instructions
+"Open http:localhost:8080 in your browser"
 ## Docker Hub
 Link to image: https://hub.docker.com/repository/docker/dianahorban/todoapp/general
 ## Build and Run
