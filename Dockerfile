@@ -10,5 +10,6 @@ ENV PYTHONUNBUFFERED=1
 COPY --from=base /app .
 RUN pip install --upgrade pip && \
 pip install -r requirements.txt
+RUN python manage.py
 EXPOSE 8080
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
