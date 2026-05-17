@@ -10,13 +10,11 @@ Quick start — pull and run
 
 1. Pull the image from Docker Hub:
 
-	docker pull verteiger/todoapp:latest
+   docker pull verteiger/todoapp:1.0.0
 
 2. Run the container, mapping the container port 8080 to a host port (example uses host port 8000):
 
-	docker run --rm -p 8000:8080 verteiger/todoapp:latest
-
-	- `--rm` removes the container after exit. Omit if you want to keep the container.
+   docker run --rm -p 8000:8080 todoapp:1.0.0
 
 Build the image locally
 -----------------------
@@ -25,13 +23,11 @@ If you prefer to build the image from source locally:
 
 1. Build the image (run from the repository root):
 
-	docker build -t verteiger/todoapp:latest .
+   docker build -t todoapp:1.0.0 .
 
 2. Run the locally-built image:
 
-	docker run --rm -p 8000:8080 verteiger/todoapp:latest
-
-Push to Docker Hub
+   docker run --rm -p 8000:8080 todoapp:1.0.0
 ------------------
 
 To publish your local build to Docker Hub (you must own the `verteiger/todoapp` repo or change the tag to your own):
@@ -42,11 +38,11 @@ To publish your local build to Docker Hub (you must own the `verteiger/todoapp` 
 
 2. Tag the image (if needed):
 
-	docker tag verteiger/todoapp:latest verteiger/todoapp:latest
+   docker tag todoapp:1.0.0 verteiger/todoapp:1.0.0
 
 3. Push:
 
-	docker push verteiger/todoapp:latest
+   docker push verteiger/todoapp:1.0.0
 
 Notes about the container
 -------------------------
@@ -73,11 +69,7 @@ Create a `docker-compose.yml` file with a service like:
 version: '3.8'
 services:
   todoapp:
-	 image: verteiger/todoapp:latest
-	 ports:
-		- "8000:8080"
-	 restart: unless-stopped
-```
+    image: todoapp:1.0.0
 
 Then run:
 
