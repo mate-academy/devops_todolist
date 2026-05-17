@@ -77,6 +77,7 @@ Then run:
 docker-compose up -d
 ```
 
+
 Troubleshooting
 ---------------
 
@@ -85,4 +86,3 @@ Troubleshooting
   docker logs <container-id>
 
 - Ensure no other service is already listening on the chosen host port.
-
