@@ -1,18 +1,53 @@
-# Use the official Python image as the base image
-FROM python:3.8
+### Builder stage
+ARG PYTHON_VERSION=3.8
 
-# Set the working directory within the container
+FROM python:${PYTHON_VERSION}-slim AS builder
+
 WORKDIR /app
 
-# Copy the application code into the container
-COPY app.py .
-COPY docker-logo.png .
+COPY requirements.txt .
 
-# Install Flask and other dependencies
-RUN pip install Flask
+# Install system build dependencies and Python build 
+RUN apt-get update \
+     && apt-get install -y --no-install-recommends \
+         build-essential \
+         gcc \
+         python3-dev \
+         libbz2-dev \
+         libssl-dev \
+         libffi-dev \
+     && rm -rf /var/lib/apt/lists/* \
+     && pip install --upgrade pip wheel \
+     && pip install --no-cache-dir \
+         --prefix=/install \
+         -r requirements.txt
 
-# Expose port 8080 to the host
+### Runtime stage
+FROM python:${PYTHON_VERSION}-slim
+
+ENV PYTHONUNBUFFERED=1 
+
+WORKDIR /app
+
+# Create non-root user
+RUN useradd --create-home --uid 1001 appuser
+
+# Copy installed packages
+COPY --from=builder /install /usr/local
+
+# Copy application source
+COPY . .
+
+# Set ownership
+RUN chown -R appuser:appuser /app
+
+# Switch to non-root user
+USER appuser
+
+RUN python manage.py migrate
+
+# Application port
 EXPOSE 8080
 
-# Define the command to run the application
-ENTRYPOINT ["python", "app.py"]
+# Start app
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"] 
