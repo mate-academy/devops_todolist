@@ -1,0 +1,12 @@
+.github
+.venv
+__pycache__
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+INSTRUCTION.md
+README.md
+.dockerignore
+.pre-commit-config.yaml
+.travis.yml
