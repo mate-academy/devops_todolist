@@ -12,3 +12,9 @@ To build the Docker image locally, run the following command in the project root
 
 ```bash
 docker build -t todoapp .
+```
+## How to Run the Container
+
+```bash
+docker run -p 8080:8080 todoappdocker build -t todoapp .
+```
