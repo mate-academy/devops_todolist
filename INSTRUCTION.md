@@ -16,5 +16,5 @@ docker build -t todoapp .
 ## How to Run the Container
 
 ```bash
-docker run -p 8080:8080 todoappdocker build -t todoapp .
+docker run -p 8080:8080 todoapp
 ```
