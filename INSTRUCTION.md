@@ -30,6 +30,27 @@ docker build -t todoapp:1.0.0 .
 docker run -d -p 8080:8080 --name todoapp_container todoapp:1.0.0
 ```
 
+## Publishing the image to Docker Hub
+
+1. Log in to your Docker Hub account:
+
+```
+docker login
+```
+
+2. Tag the image for your Docker Hub repository:
+
+```
+docker tag todoapp:1.0.0 prostoponchik/todoapp:1.0.0
+```
+
+3. Push the image to Docker Hub:
+
+```
+docker push prostoponchik/todoapp:1.0.0
+```
+
+
 ## Instructions for running the container from Docker Hub image
 
 1. Pull the image from Docker Hub:

@@ -6,7 +6,9 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+RUN cp -a /install/. /usr/local/
 
 COPY . .
 
@@ -17,9 +19,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
+COPY --from=build /install /usr/local
 COPY --from=build /app /app
 EXPOSE 8080
 
