@@ -12,7 +12,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 
-FROM python:${PYTHON_VERSION} as RunStage
+FROM python:${PYTHON_VERSION} as runstage
 
 ENV PYTHONUNBUFFERED=1
 
