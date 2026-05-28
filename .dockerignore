@@ -1,0 +1,10 @@
+.venv/
+.github/
+__pycache__/
+*.pyc
+*.pyo
+.travis.yml
+.pre-commit-config.yaml
+db.sqlite3
+README.md
+.git/
