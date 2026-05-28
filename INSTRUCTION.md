@@ -18,16 +18,16 @@ git clone https://github.com/ProstoPonchik/devops_todolist
 cd devops_todolist
 ```
 
-3. Build the Docker image and name it `todoapp`:
+3. Build the Docker image and tag it for Docker Hub:
 
 ```
-docker build -t todoapp:1.0.0 .
+docker build -t todoapp:1.0.0 -t prostoponchik/todoapp:1.0.0 .
 ```
 
 4. Run the container:
 
 ```
-docker run -d -p 8080:8080 --name todoapp_container todoapp:1.0.0
+docker run -d -p 8080:8080 --name todoapp_container prostoponchik/todoapp:1.0.0
 ```
 
 ## Publishing the image to Docker Hub

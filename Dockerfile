@@ -19,7 +19,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY --from=build /install /usr/local
+COPY --from=build /usr/local /usr/local
 COPY --from=build /app /app
 EXPOSE 8080
 
