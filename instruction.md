@@ -1,7 +1,7 @@
 # TodoApp
 
 ## Docker Hub
-https://hub.docker.com/r/YOUR_USERNAME/todoapp
+https://hub.docker.com/r/igorrrrrrrrr/todoapp
 
 ---
 
@@ -14,14 +14,14 @@ docker build -f Dockerfile -t todoapp .
 ## Run container
 
 ```bash
-docker run -d -p 8080:8080 --name todoapp YOUR_USERNAME/todoapp:1.0.0
+docker run -d -p 8080:8080 --name todoapp igorrrrrrrrr/todoapp:1.0.0
 ```
 
 ## Or pull from Docker Hub and run
 
 ```bash
-docker pull YOUR_USERNAME/todoapp:1.0.0
-docker run -d -p 8080:8080 --name todoapp YOUR_USERNAME/todoapp:1.0.0
+docker pull igorrrrrrrrr/todoapp:1.0.0
+docker run -d -p 8080:8080 --name todoapp igorrrrrrrrr/todoapp:1.0.0
 ```
 
 ---
@@ -29,3 +29,14 @@ docker run -d -p 8080:8080 --name todoapp YOUR_USERNAME/todoapp:1.0.0
 ## Access the application
 
 Open browser and go to:
+
+http://localhost:8080
+
+---
+
+## Stop and remove container
+
+```bash
+docker stop todoapp
+docker rm todoapp
+```
