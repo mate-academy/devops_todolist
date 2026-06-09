@@ -15,7 +15,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY --from=builder /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+COPY --from=builder /usr/local/lib /usr/local/lib
 COPY . .
 
 RUN python manage.py migrate
