@@ -22,4 +22,4 @@ COPY . .
 RUN python manage.py migrate
 
 ENTRYPOINT ["python"]
-CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["manage.py", "runserver", "0.0.0.0:8080"]

@@ -4,15 +4,21 @@
 
 Download and install Docker for your OS: https://docs.docker.com/get-docker/
 
-## 2. Run the application
+## 2. Build the image
 
 ```
-docker run -d -p 8000:8000 666phx/todoapp:latest
+docker build -t todoapp:1.0.0 .
 ```
 
-## 3. Open in browser
+## 3. Run the container
 
-Go to: http://localhost:8000
+```
+docker run -d -p 8080:8080 666phx/todoapp:1.0.0
+```
+
+## 4. Open in browser
+
+Go to: http://localhost:8080
 
 ---
 
