@@ -15,13 +15,13 @@ https://hub.docker.com/r/olehkovalievskyi/todoapp
 Clone the repository and navigate to its root directory, then run:
 
 ```bash
-docker build -t todoapp .
+docker build -t todoapp:1.0.0 .
 ```
 
 ## Run the container
 
 ```bash
-docker run -d -p 8080:8080 --name todoapp-container todoapp
+docker run -d -p 8080:8080 --name todoapp-container todoapp:1.0.0
 ```
 
 Alternatively, you can pull and run the pre-built image directly from Docker Hub:
