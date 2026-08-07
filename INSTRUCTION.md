@@ -20,7 +20,7 @@ https://hub.docker.com/r/userdockerana/todoapp
 Build the Docker image from the project root directory:
 
 ```bash
-docker build -t todoapp .
+docker build -t userdockerana/todoapp:1.0.0
 ```
 
 ## Run Container
