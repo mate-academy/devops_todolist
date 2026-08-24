@@ -6,9 +6,10 @@ https://hub.docker.com/repository/docker/daniilshpak/todoapp/general
 
 ## 1. Build Image
 
-docker build -t todoapp .
+docker build -t daniilshpak/todoapp:1.0.0 .
 
 ## 2. Pull Image from Docker Hub
+
 
 docker pull daniilshpak/todoapp:1.0.0
 
