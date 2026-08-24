@@ -8,7 +8,7 @@ Clone repository:
 git@github.com:Nicotqq/devops_todolist.git
 
 Build the image:
-docker build -t todoapp .
+docker build -t todoapp:1.0.0 .
 
 Run the container mapping the port 8080
 docker run -p 8080:8080
