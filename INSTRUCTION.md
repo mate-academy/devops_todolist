@@ -4,14 +4,8 @@ This repository contains a containerized Django ToDo application using Docker Mu
 
 ## Docker Hub Repository
 You can find the public Docker image here:
-* **Image Link:** [https://docker.com](https://docker.com)
+* **Image Link:** [https://hub.docker.com/repository/docker/poikka001/todoapp/general](https://hub.docker.com/repository/docker/poikka001/todoapp/general)
 * **Pull Command:** `docker pull poikka001/todoapp:1.0.0`
-
-## Instructions for Building the Container Local Image
-To build the Docker image locally from the project root, run:
-```bash
-docker build -t todoapp:1.0.0 .
-```
 
 ## Instructions for Running the Container
 To start the Django application inside the container and bind it to your local machine, execute:
