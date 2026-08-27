@@ -4,13 +4,13 @@ Docker Hub repository: https://hub.docker.com/r/bodya4243/todoapp
 
 ## Build the Image
 
-Run the build from the project root:
+From the project root, build the image:
 
 ```bash
 docker build -t todoapp:1.0.0 .
 ```
 
-To build with a specific Python base image version:
+If you want to override the Python base image version:
 
 ```bash
 docker build --build-arg PYTHON_VERSION=3.11-slim -t todoapp:1.0.0 .
@@ -18,20 +18,20 @@ docker build --build-arg PYTHON_VERSION=3.11-slim -t todoapp:1.0.0 .
 
 ## Run the Container
 
-Start the application container and publish Django on port 8080:
+Run the app container and publish port 8080:
 
 ```bash
 docker run --name todoapp -p 8080:8080 todoapp:1.0.0
 ```
 
-If the container name is already in use, remove the old container first:
+If a container named `todoapp` already exists:
 
 ```bash
 docker rm -f todoapp
 docker run --name todoapp -p 8080:8080 todoapp:1.0.0
 ```
 
-## Pull and Run from Docker Hub
+## Pull From Docker Hub
 
 Pull the published image:
 
@@ -45,15 +45,15 @@ Run the published image:
 docker run --name todoapp -p 8080:8080 bodya4243/todoapp:1.0.0
 ```
 
-## Access the Application
+## Access in a Browser
 
-Open the application in a browser:
+Open the app:
 
 ```text
 http://localhost:8080/
 ```
 
-The API is available at:
+Open the API:
 
 ```text
 http://localhost:8080/api/
