@@ -19,7 +19,7 @@ docker build . -t todoapp:1.0.0
 ### Run a locally built image
 
 ```bash
-docker run -p 8080:8080 --t todoapp:1.0.0
+docker run -p 8080:8080 -d todoapp:1.0.0
 ```
 
 ## Access the application in a browser
