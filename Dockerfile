@@ -1,6 +1,6 @@
 ARG PYTHON_VERSION=3.10
 
-FROM python:${PYTHON_VERSION} AS base
+FROM python:${PYTHON_VERSION} AS builder
 
 WORKDIR /app
 
@@ -10,17 +10,18 @@ COPY lists ./lists/
 COPY api ./api/
 COPY accounts ./accounts/
 
-FROM python:${PYTHON_VERSION}-slim AS builder
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    python manage.py migrate
+
+FROM python:${PYTHON_VERSION}-slim AS run
 
 WORKDIR /app
 
 ENV PYTHONUNBUFFERED=1
 
-COPY --from=base /app .
-
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt && \
-    python manage.py migrate
+COPY --from=builder /app .
+COPY --from=builder /usr/local /usr/local
 
 EXPOSE 8080
 
