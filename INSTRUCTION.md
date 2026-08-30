@@ -9,6 +9,7 @@ Clone the repository and navigate to the project directory:
 
 ```bash
 git clone https://github.com/steelpush-aqa/devops_todolist.git
+
 cd devops_todolist
 ```
 
