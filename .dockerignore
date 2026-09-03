@@ -1,0 +1,13 @@
+.git
+.github
+.idea
+.venv
+venv
+**/__pycache__
+*.pyc
+*.sqlite3
+*.db
+.pre-commit-config.yaml
+.travis.yml
+INSTRUCTION.md
+README.md
