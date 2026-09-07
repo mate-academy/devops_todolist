@@ -9,7 +9,7 @@ WORKDIR /devops_todolist
 
 ENV PYTHONUNBUFFERED=1
 
-COPY --from=base /devops_todolist .
+COPY --from=base /devops_todolist /devops_todolist
 RUN pip install --upgrade pip && \
 pip install -r requirements.txt && \
 python manage.py migrate
