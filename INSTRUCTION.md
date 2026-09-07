@@ -1,6 +1,6 @@
 The public image for this application is available on Docker Hub:
 * **Docker Hub Link:** https://hub.docker.com/repository/docker/vadym192/todoapp/
-* **Image:** `hidan192/todoapp:1.0.0`
+* **Image:** `vadym192/todoapp:1.0.0`
 
 ---
 
@@ -17,7 +17,7 @@ docker build -t todoapp:1.0.0 .
 You can run the container using either your local build or directly by pulling it from Docker Hub.
 
 ```bash
-docker run -d -p 8080:8080 --name todoapp_container todoapp:1.0.0
+docker run -d -p 8080:8000 --name todoapp_container todoapp:1.0.0
 ```
 
 
@@ -33,4 +33,4 @@ You should see the Django TodoList application interface.
 
 ### Push Image to Docker Hub
 ```bash
-docker push hidan192/todoapp:1.0.0
+docker push vadym192/todoapp:1.0.0
