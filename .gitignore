@@ -13,6 +13,10 @@ __pycache__
 *.sublime-project
 *.sublime-workspace
 
+# IDE related files
+.idea/
+.vscode/
+
 # test, build, log
 build
 docs/_build
@@ -21,3 +25,5 @@ results
 logs
 *.logs
 venv
+.venv
+.pytest_cache/
