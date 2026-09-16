@@ -8,11 +8,11 @@
 
 ### 1. Build Docker image
 
-    docker build -t django-todolist .
+    docker build -t todoapp:1.0.0 .
 
 ### 2. Run the container
 
-    docker run -p 8080:8080 django-todolist
+    docker run -p 8080:8080 todoapp:1.0.0
 
 ## Access the application
 
