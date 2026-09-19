@@ -1,4 +1,4 @@
-## Link to Docker Hub
+## Link Docker Hub
 
 https://hub.docker.com/r/khrystyna079/todoapp
 
