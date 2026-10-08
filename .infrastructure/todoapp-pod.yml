@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todoapp
+  namespace: todoapp
+  labels:
+    app: todoapp
+spec:
+  containers:
+  - name: todoapp-container
+    image: vitsheo/todoapp:3.0.0
+    ports:
+    - containerPort: 8000
+    livenessProbe:
+      tcpSocket:
+        port: 8000
+      initialDelaySeconds: 10
+      periodSeconds: 10
+    readinessProbe:
+      tcpSocket:
+        port: 8000
+      initialDelaySeconds: 10
+      periodSeconds: 5
