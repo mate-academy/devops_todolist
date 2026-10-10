@@ -8,7 +8,7 @@ https://hub.docker.com/repository/docker/dmytrykell/todoapp
 
 From the project root, run:
 
-docker build -f Dockerfile.multistage -t todoapp:1.0.0 .
+docker build -f Dockerfile -t todoapp:1.0.0 .
 
 ## Run the Container
 
