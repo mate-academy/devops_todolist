@@ -4,15 +4,48 @@
 
 Django ToDo List is a web application that provides task management functionality, user authentication, and a REST API.
 
-The application runs inside a Docker container using Python 3.11 and Django 4.1.10.
+The application runs inside Docker containers using:
 
-## Docker Hub Repository
+- Python 3.11
+- Django 4.1.10
+- MySQL 8.0
+- MySQL Connector/Python 8.2.0
+- Docker Volumes
+- Docker Networks
 
-The Docker image is available on Docker Hub:
+The application uses MySQL as its database. Database data is stored in a persistent Docker Volume.
+
+## Docker Hub Repositories
+
+The Docker images are available on Docker Hub.
+
+### Django Application
+
+Repository:
 
 https://hub.docker.com/r/romanartem/todoapp
 
-Image: `romanartem/todoapp:1.0.0`
+Image:
+
+`romanartem/todoapp:2.0.0`
+
+### MySQL Database
+
+Repository:
+
+https://hub.docker.com/r/romanartem/mysql-local
+
+Image:
+
+`romanartem/mysql-local:1.0.0`
+
+### Previous Application Version
+
+The previous application image is also available:
+
+`romanartem/todoapp:1.0.0`
+
+Version 1.0.0 uses SQLite, while version 2.0.0 uses MySQL with persistent storage.
 
 ## Requirements
 
@@ -25,143 +58,143 @@ Make sure Docker Desktop is running.
 
 ## 1. Clone the Repository
 
+Clone the GitHub repository:
+
 ```bash
 git clone https://github.com/KoLpI76/devops_todolist.git
 cd devops_todolist
 ```
 
-## 2. Build the Docker Image
-
-Build the image using the Dockerfile:
+Switch to the solution branch:
 
 ```bash
-docker build -t todoapp .
+git switch task_solution
 ```
 
-The Dockerfile uses a multi-stage build:
+## 2. Create a Docker Network
 
-- Build stage: installs Python dependencies.
-- Run stage: copies dependencies and application files, executes database migrations, and configures the Django server.
-
-## 3. Run the Docker Container
-
-Start the application in detached mode:
+Create a Docker network to allow communication between the Django and MySQL containers:
 
 ```bash
-docker run -d -p 8080:8080 --name todo-container todoapp
+docker network create todo-network
 ```
 
-## 4. Check Container Status
+Verify the network:
 
-Verify that the container is running:
+```bash
+docker network ls
+```
+
+Both containers will use the `todo-network` network.
+
+## 3. Create a Docker Volume
+
+Create a persistent Docker Volume for MySQL:
+
+```bash
+docker volume create mysql-data
+```
+
+Verify that the volume exists:
+
+```bash
+docker volume ls
+```
+
+The volume stores MySQL database files and preserves them when the database container is removed.
+
+## 4. Build the MySQL Docker Image
+
+Build the MySQL image using `Dockerfile.mysql`:
+
+```bash
+docker build -f Dockerfile.mysql -t mysql-local:1.0.0 .
+```
+
+The Dockerfile is based on the official MySQL 8.0 image.
+
+It initializes the following database configuration:
+
+| Parameter | Value |
+|---|---|
+| Database | app_db |
+| Username | app_user |
+| Password | 1234 |
+| MySQL port | 3306 |
+| Root password | root1234 |
+
+These credentials are used for educational purposes only.
+
+## 5. Run MySQL with a Persistent Volume
+
+Start the MySQL container:
+
+```bash
+docker run -d \
+  --name mysql-container \
+  --network todo-network \
+  -v mysql-data:/var/lib/mysql \
+  -p 3306:3306 \
+  mysql-local:1.0.0
+```
+
+The command:
+
+- Starts the MySQL container in detached mode.
+- Connects it to the Docker network.
+- Attaches the persistent Docker Volume.
+- Exposes MySQL on port 3306.
+
+Verify the container:
 
 ```bash
 docker ps
 ```
 
-Check the application logs:
+Check MySQL logs:
 
 ```bash
-docker logs todo-container
+docker logs mysql-container
 ```
 
-## 5. Access the Application
+Wait until the logs contain:
 
-Open your web browser and navigate to:
+```text
+ready for connections
+```
 
-http://localhost:8080/
+## 6. Verify the MySQL Database
 
-The Django ToDo List application should be available.
-
-REST API:
-
-http://localhost:8080/api/
-
-## 6. Pull the Image from Docker Hub
-
-Alternatively, download the published image:
+Connect to MySQL using the application user:
 
 ```bash
-docker pull romanartem/todoapp:1.0.0
+docker exec mysql-container mysql -u app_user -p -D app_db -e "SHOW DATABASES;"
 ```
 
-Run the downloaded image:
+Enter the password `1234` when prompted.
+
+Expected databases include:
+
+```text
+app_db
+information_schema
+performance_schema
+```
+
+This confirms that the application user can connect to MySQL.
+
+## 7. Verify the Docker Volume
+
+Check the volume attached to the MySQL container:
 
 ```bash
-docker run -d -p 8080:8080 --name todo-container romanartem/todoapp:1.0.0
+docker inspect mysql-container --format '{{range .Mounts}}{{.Name}} -> {{.Destination}}{{println}}{{end}}'
 ```
 
-Note: If a container named `todo-container` already exists, stop and remove it before running another container with the same name.
+Expected output:
 
-## 7. Stop the Container
-
-```bash
-docker stop todo-container
+```text
+mysql-data -> /var/lib/mysql
 ```
 
-## 8. Remove the Container
-
-```bash
-docker rm todo-container
-```
-
-## 9. Restart the Container
-
-To restart an existing stopped container:
-
-```bash
-docker start todo-container
-```
-
-## 10. Database Migrations
-
-Database migrations are executed during the Docker image build using:
-
-```dockerfile
-RUN python manage.py migrate --noinput
-```
-
-The application uses SQLite as its database.
-
-Database changes made inside the container are not persistent if the container is removed, unless persistent storage is configured.
-
-## 11. Docker Configuration
-
-- Python version: 3.11
-- Django version: 4.1.10
-- Container port: 8080
-- Host port: 8080
-- Environment variable: `PYTHONUNBUFFERED=1`
-- Docker image: `romanartem/todoapp:1.0.0`
-
-The Django development server starts using:
-
-```bash
-python manage.py runserver 0.0.0.0:8080
-```
-
-## 12. Publish the Image to Docker Hub
-
-Log in to Docker Hub:
-
-```bash
-docker login
-```
-
-Tag the image:
-
-```bash
-docker tag todoapp:latest romanartem/todoapp:1.0.0
-```
-
-Push the image:
-
-```bash
-docker push romanartem/todoapp:1.0.0
-```
-
-## Notes
-
-This configuration is intended for development and educational purposes.
-
-For production deployment, additional security settings, persistent database storage, and a production-ready application server are recommended.
+This confirms that MySQL stores

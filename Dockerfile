@@ -22,8 +22,6 @@ COPY --from=builder /install /usr/local
 
 COPY . .
 
-RUN python manage.py migrate --noinput
-
 EXPOSE 8080
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8080"]
