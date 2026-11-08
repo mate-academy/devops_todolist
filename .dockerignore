@@ -1,0 +1,45 @@
+# Git version control
+
+.git
+.gitignore
+
+# Python virtual environments (never copy your local venv into Docker!)
+
+venv/
+env/
+ENV/
+.venv/
+
+# Python cache and compiled bytecode
+
+**pycache**/
+_.py[cod]
+_$py.class
+_.so
+.Python
+dist/
+build/
+_.egg-info/
+.eggs/
+
+# Testing and local development tools
+
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.env
+.env.local
+
+# IDE configurations
+
+.vscode/
+.idea/
+_.swp
+_.swo
+
+# OS-specific files
+
+.DS_Store
+Thumbs.db
