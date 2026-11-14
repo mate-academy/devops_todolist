@@ -1,6 +1,6 @@
 ## Docker Hub
-docker pull storozhuk21/todoapp:tagname
-
+Repository: https://hub.docker.com/r/storozhuk21/todoapp
+docker pull storozhuk21/todoapp:1.0.0
 
 ## build image command
 docker build -t todoapp:1.0.0 .
