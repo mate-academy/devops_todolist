@@ -18,7 +18,7 @@ COPY --from=builder /install /usr/local
 
 COPY . .
 
-ENV PYTHONBUFFERED=1
+ENV PYTHONUNBUFFERED=1
 
 RUN python manage.py migrate
 
