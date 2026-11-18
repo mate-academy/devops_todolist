@@ -7,13 +7,19 @@ https://hub.docker.com/repository/docker/anthony047/todoapp
 ## Build the Docker Image
 
 ```bash
-docker build -t todoapp .
+docker build -t anthony047/todoapp:1.0.0 .
+```
+
+## Push the Image to Docker Hub
+
+```bash
+docker push anthony047/todoapp:1.0.0
 ```
 
 ## Run the Application
 
 ```bash
-docker run -d --name todo-container -p 8080:8080 todoapp
+docker run -d --name todo-container -p 8080:8080 anthony047/todoapp:1.0.0
 ```
 
 ## Access the Application
