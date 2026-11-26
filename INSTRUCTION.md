@@ -7,7 +7,7 @@ Link to Docker Hub repository https://hub.docker.com/r/gregoryu85/todoapp
 Build app:
 
 ```
-docker build -t todoapp:1.0.0
+docker build -t todoapp:1.0.0 .
 ```
 
 Run app:
@@ -19,11 +19,11 @@ docker run -p 8080:8080 todoapp:1.0.0
 Browse the API:
 
 ```
-http://localhost:8000/api/
+http://localhost:8080/api/
 ```
 
 Start on the landing page
 
 ```
-http://localhost:8000/
+http://localhost:8080/
 ```
